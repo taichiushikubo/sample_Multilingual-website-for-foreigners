@@ -1,0 +1,1182 @@
+/* ============================================
+   カラーパレット & デザイン変数
+   ※ カラー変更はこちらを編集してください
+   ============================================ */
+:root {
+    /* Primary Colors - 信頼感のあるネイビー */
+    --color-primary: #0B1B3A;
+    --color-primary-light: #1A2F4A;
+    
+    /* Accent Colors - メインアクセント（赤系）*/
+    --color-accent: #C93434;
+    --color-accent-hover: #B02A2A;
+    --color-accent-light: #E85454;
+    
+    /* Accent 2 - オプション（ティール） */
+    --color-accent-2: #0AA6A6;
+    --color-accent-2-hover: #089595;
+    
+    /* Background Colors */
+    --color-bg-primary: #FFFFFF;
+    --color-bg-secondary: #F6F6F8;
+    --color-bg-dark: #0B1B3A;
+    
+    /* Text Colors */
+    --color-text-primary: #111827;
+    --color-text-secondary: #6B7280;
+    --color-text-light: #9CA3AF;
+    --color-text-inverse: #FFFFFF;
+    
+    /* Border & Shadow */
+    --color-border: #E5E7EB;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+    
+    /* Container Max Widths */
+    --container-max-width-sm: 100%;
+    --container-max-width-md: 768px;
+    --container-max-width-lg: 1024px;
+    --container-max-width-xl: 1200px;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-pill: 9999px;
+    
+    /* Transitions */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+}
+
+/* ============================================
+   ベーススタイル & リセット
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* アクセシビリティ: フォーカススタイル */
+*:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* 共通コンテナスタイル */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+/* セクション間のアニメーション */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   1. Header
+   ※ カラー変更: --color-accent を編集
+   ============================================ */
+.header {
+    background-color: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-lg) var(--spacing-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-sm);
+}
+
+.header__container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+    transition: var(--transition-base);
+}
+
+.header__nav {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.header__nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-base);
+}
+
+.header__nav-link:hover,
+.header__nav-link:focus-visible {
+    color: var(--color-accent);
+    background-color: rgba(201, 52, 52, 0.1);
+}
+
+/* ============================================
+   2. Hero / First View
+   ※ 画像差し替え: img/hero-image.jpg を変更
+   ※ ボタンカラー: --color-accent を編集
+   ============================================ */
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-3xl) var(--spacing-md);
+}
+
+.hero__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: var(--transition-base);
+}
+
+.hero__image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(11, 27, 58, 0.6) 0%, rgba(201, 52, 52, 0.4) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero__container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero__content {
+    flex: 1;
+}
+
+.hero__title {
+    margin-bottom: var(--spacing-lg);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.hero__title-line {
+    display: block;
+    color: var(--color-text-inverse);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero__title-line:last-child {
+    color: var(--color-text-inverse);
+    margin-top: var(--spacing-xs);
+}
+
+.hero__description {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-text-inverse);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
+    max-width: 90%;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero__buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.hero__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    transition: var(--transition-base);
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+.hero__button--primary {
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
+    box-shadow: var(--shadow-md);
+}
+
+.hero__button--primary:hover,
+.hero__button--primary:focus-visible {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero__button--secondary {
+    background-color: var(--color-accent-2);
+    color: var(--color-text-inverse);
+    box-shadow: var(--shadow-md);
+}
+
+.hero__button--secondary:hover,
+.hero__button--secondary:focus-visible {
+    background-color: var(--color-accent-2-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* 画像が読み込まれない場合のフォールバック */
+.hero__image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #E8EAED 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ============================================
+   3. News
+   ※ タブカラー: --color-accent を編集
+   ============================================ */
+.news {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-3xl) var(--spacing-md);
+}
+
+.news__container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+}
+
+.news__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: -0.02em;
+}
+
+.news__tabs {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.news__tab {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-family);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: var(--transition-base);
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+.news__tab:hover:not(.news__tab--active) {
+    background-color: #F9FAFB;
+    border-color: var(--color-accent-light);
+    color: var(--color-accent);
+}
+
+.news__tab--active {
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+}
+
+.news__tab:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.news__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.news__item {
+    background-color: var(--color-bg-primary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+.news__item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-accent-light);
+}
+
+.news__item.hidden {
+    display: none;
+}
+
+.news__item-date {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.02em;
+}
+
+.news__item-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    line-height: 1.5;
+    transition: var(--transition-base);
+}
+
+.news__item-title:hover {
+    color: var(--color-accent);
+}
+
+/* ============================================
+   4. About
+   ※ カードカラー: .about__block の background を編集
+   ============================================ */
+.about {
+    background-color: var(--color-bg-primary);
+    padding: var(--spacing-3xl) var(--spacing-md);
+}
+
+.about__container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+}
+
+.about__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: -0.02em;
+}
+
+.about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.about__block {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-text-inverse);
+    padding: var(--spacing-lg);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 120px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.about__block-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: var(--transition-base);
+}
+
+.about__block-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(11, 27, 58, 0.7) 0%, rgba(11, 27, 58, 0.5) 100%);
+    z-index: 1;
+    transition: var(--transition-base);
+}
+
+.about__block:hover .about__block-image {
+    transform: scale(1.1);
+}
+
+.about__block:hover .about__block-overlay {
+    background: linear-gradient(135deg, rgba(11, 27, 58, 0.8) 0%, rgba(201, 52, 52, 0.7) 100%);
+}
+
+.about__block:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.about__block--large {
+    grid-row: 1 / 3;
+    min-height: 256px;
+}
+
+.about__block--large .about__block-overlay {
+    background: linear-gradient(135deg, rgba(201, 52, 52, 0.75) 0%, rgba(201, 52, 52, 0.6) 100%);
+}
+
+.about__block--large:hover .about__block-overlay {
+    background: linear-gradient(135deg, rgba(201, 52, 52, 0.85) 0%, rgba(176, 42, 42, 0.75) 100%);
+}
+
+.about__block-text {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.about__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-accent);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-base);
+}
+
+.about__link:hover,
+.about__link:focus-visible {
+    color: var(--color-accent-hover);
+    background-color: rgba(201, 52, 52, 0.1);
+    gap: var(--spacing-sm);
+}
+
+.about__link-arrow {
+    transition: var(--transition-base);
+}
+
+.about__link:hover .about__link-arrow {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   5. Official Tourism Guide
+   ※ 画像差し替え: img/tourism-guide.jpg を変更
+   ============================================ */
+.tourism-guide {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-3xl) var(--spacing-md);
+}
+
+.tourism-guide__container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+}
+
+.tourism-guide__title {
+    margin-bottom: var(--spacing-xl);
+}
+
+.tourism-guide__title-line {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.tourism-guide__title-line:last-child {
+    padding-left: 0;
+    color: var(--color-accent);
+    margin-top: var(--spacing-xs);
+}
+
+.tourism-guide__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.tourism-guide__image-wrapper {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    background-color: #E0E0E0;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tourism-guide__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition-base);
+    z-index: 0;
+}
+
+.tourism-guide__image-wrapper:hover .tourism-guide__img {
+    transform: scale(1.05);
+}
+
+.tourism-guide__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(11, 27, 58, 0.7) 0%, rgba(11, 27, 58, 0.5) 50%, rgba(201, 52, 52, 0.6) 100%);
+    z-index: 1;
+    pointer-events: none;
+    transition: var(--transition-base);
+}
+
+.tourism-guide__image-wrapper:hover .tourism-guide__overlay {
+    background: linear-gradient(135deg, rgba(11, 27, 58, 0.75) 0%, rgba(11, 27, 58, 0.55) 50%, rgba(201, 52, 52, 0.7) 100%);
+}
+
+.tourism-guide__text {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.tourism-guide__quote {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-inverse);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.3;
+    font-style: italic;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+}
+
+.tourism-guide__line {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-text-inverse);
+    line-height: 1.8;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tourism-guide__line:last-child {
+    margin-bottom: 0;
+}
+
+/* カード共通スタイル */
+.about__card,
+.tourism-guide__card {
+    position: relative;
+}
+
+/* ============================================
+   6. Related Information (現状維持)
+   ============================================ */
+.related-info {
+    background-color: var(--color-bg-primary);
+    padding: var(--spacing-3xl) var(--spacing-md);
+}
+
+.related-info__container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+}
+
+.related-info__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: -0.02em;
+}
+
+.related-info__carousel {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.related-info__item {
+    width: calc(25% - var(--spacing-md) * 0.75);
+    min-width: 0;
+    height: 140px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-inverse);
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* 4つ目以降のアイテムを非表示 */
+.related-info__item:nth-child(n+5) {
+    display: none;
+}
+
+.related-info__item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.related-info__dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.related-info__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid var(--color-border);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.related-info__dot--active {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* ============================================
+   7. Publications & Official SNS
+   ============================================ */
+.sns {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-3xl) var(--spacing-md);
+}
+
+.sns__container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+}
+
+.sns__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: -0.02em;
+}
+
+.sns__buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.sns__button {
+    flex: 1;
+    min-width: 140px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-text-inverse);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.sns__button:hover,
+.sns__button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+}
+
+/* ============================================
+   8. Footer
+   ※ フッター背景色: --color-bg-dark を編集
+   ============================================ */
+.footer {
+    background-color: var(--color-bg-dark);
+    padding: var(--spacing-3xl) var(--spacing-md);
+    color: var(--color-text-inverse);
+}
+
+.footer__container {
+    width: 100%;
+    max-width: var(--container-max-width-xl);
+    margin: 0 auto;
+}
+
+.footer__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text-inverse);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: -0.02em;
+}
+
+.footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer__nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-inverse);
+    text-decoration: none;
+    opacity: 0.9;
+    transition: var(--transition-base);
+    padding: var(--spacing-xs) 0;
+}
+
+.footer__nav-link:hover,
+.footer__nav-link:focus-visible {
+    opacity: 1;
+    color: var(--color-accent-light);
+    padding-left: var(--spacing-sm);
+}
+
+.footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer__contact-item {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-text-inverse);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    opacity: 0.85;
+}
+
+.footer__contact-item:first-child::before {
+    content: '☎';
+    margin-right: var(--spacing-xs);
+    font-size: 16px;
+}
+
+.footer__contact-label {
+    display: inline-block;
+}
+
+.footer__contact-value {
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* ============================================
+   レスポンシブ調整
+   ============================================ */
+
+/* タブレットサイズ（768px以下） */
+@media (max-width: 768px) {
+    :root {
+        --spacing-3xl: 48px;
+        --spacing-2xl: 40px;
+    }
+    
+    .header__container,
+    .hero__container,
+    .news__container,
+    .about__container,
+    .tourism-guide__container,
+    .related-info__container,
+    .sns__container,
+    .footer__container {
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+    }
+    
+    .hero {
+        min-height: 500px;
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    .hero__content {
+        max-width: 100%;
+    }
+    
+    .hero__description {
+        max-width: 100%;
+    }
+    
+    .tourism-guide__image-wrapper {
+        min-height: 400px;
+    }
+    
+    .tourism-guide__text {
+        padding: var(--spacing-xl) var(--spacing-lg);
+        max-width: 100%;
+    }
+    
+    .tourism-guide__quote {
+        font-size: 24px;
+    }
+    
+    .tourism-guide__line {
+        font-size: 16px;
+    }
+    
+    .related-info__item {
+        width: calc(50% - var(--spacing-md) * 0.5);
+    }
+}
+
+/* スマートフォンサイズ（480px以下） */
+@media (max-width: 480px) {
+    :root {
+        --spacing-3xl: 40px;
+        --spacing-2xl: 32px;
+        --spacing-xl: 24px;
+    }
+    
+    .header {
+        padding: var(--spacing-md) var(--spacing-md);
+    }
+    
+    .header__container,
+    .hero__container,
+    .news__container,
+    .about__container,
+    .tourism-guide__container,
+    .related-info__container,
+    .sns__container,
+    .footer__container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    
+    .hero {
+        min-height: 500px;
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+    
+    .hero__title {
+        font-size: 28px;
+    }
+    
+    .hero__description {
+        font-size: 16px;
+    }
+    
+    .news,
+    .about,
+    .tourism-guide,
+    .related-info,
+    .sns {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+    
+    .news__title,
+    .about__title,
+    .tourism-guide__title-line,
+    .related-info__title,
+    .sns__title {
+        font-size: 24px;
+    }
+    
+    .hero__buttons {
+        flex-direction: column;
+    }
+    
+    .hero__button {
+        width: 100%;
+    }
+    
+    .about__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .about__block--large {
+        grid-row: auto;
+        min-height: 120px;
+    }
+    
+    .sns__buttons {
+        flex-direction: column;
+    }
+    
+    .sns__button {
+        width: 100%;
+    }
+    
+    .related-info__item {
+        width: calc(50% - var(--spacing-md) * 0.5);
+        height: 120px;
+        font-size: 13px;
+        padding: var(--spacing-md);
+    }
+}
+
+/* 大画面サイズ（1024px以上） */
+@media (min-width: 1024px) {
+    .hero {
+        min-height: 700px;
+    }
+    
+    .hero__content {
+        max-width: 600px;
+    }
+    
+    .hero__description {
+        max-width: 100%;
+    }
+    
+    .tourism-guide__image-wrapper {
+        min-height: 600px;
+    }
+    
+    .tourism-guide__text {
+        max-width: 800px;
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+    
+    .tourism-guide__quote {
+        font-size: 40px;
+    }
+    
+    .tourism-guide__line {
+        font-size: 20px;
+    }
+}
+
+/* 超大画面サイズ（1200px以上） */
+@media (min-width: 1200px) {
+    .header__container,
+    .hero__container,
+    .news__container,
+    .about__container,
+    .tourism-guide__container,
+    .related-info__container,
+    .sns__container,
+    .footer__container {
+        padding-left: var(--spacing-xl);
+        padding-right: var(--spacing-xl);
+    }
+    
+    .hero {
+        min-height: 800px;
+    }
+    
+    .news__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .news__item {
+        margin-bottom: 0;
+    }
+}
+
+/* 超超大画面サイズ（1440px以上） */
+@media (min-width: 1440px) {
+    .header__container,
+    .hero__container,
+    .news__container,
+    .about__container,
+    .tourism-guide__container,
+    .related-info__container,
+    .sns__container,
+    .footer__container {
+        padding-left: calc(var(--spacing-xl) + var(--spacing-lg));
+        padding-right: calc(var(--spacing-xl) + var(--spacing-lg));
+    }
+    
+    .hero {
+        padding-top: calc(var(--spacing-3xl) + var(--spacing-lg));
+        padding-bottom: calc(var(--spacing-2xl) + var(--spacing-lg));
+    }
+    
+    .hero {
+        min-height: 900px;
+    }
+    
+    .hero__content {
+        max-width: 700px;
+    }
+    
+    .hero__title {
+        font-size: 42px;
+    }
+    
+    .hero__description {
+        font-size: 20px;
+    }
+    
+    .tourism-guide__image-wrapper {
+        min-height: 700px;
+    }
+    
+    .tourism-guide__quote {
+        font-size: 48px;
+    }
+    
+    .tourism-guide__line {
+        font-size: 22px;
+    }
+    
+    .tourism-guide,
+    .related-info,
+    .sns {
+        padding-top: calc(var(--spacing-3xl) + var(--spacing-lg));
+        padding-bottom: calc(var(--spacing-3xl) + var(--spacing-lg));
+    }
+}
+
+/* ============================================
+   アニメーション用ユーティリティ
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}

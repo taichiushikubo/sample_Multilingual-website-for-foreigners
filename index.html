@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official website of Riverside City - Your gateway to life in our vibrant community. Information for residents and visitors from around the world.">
+    <title>City of Riverside | Official Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 1. Header -->
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">City of Riverside</h1>
+            <nav class="header__nav">
+                <a href="#" class="header__nav-link">About Riverside</a>
+                <a href="#" class="header__nav-link">Resident Guide</a>
+                <a href="#" class="header__nav-link">For Visitors</a>
+                <a href="#" class="header__nav-link">Media</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. First View / Hero -->
+        <section class="hero" aria-label="Hero section">
+            <div class="hero__image-wrapper">
+                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&h=1080&fit=crop&q=80" 
+                     alt="Beautiful cityscape of Riverside with modern buildings and green spaces" 
+                     class="hero__image" 
+                     loading="eager"
+                     onerror="this.onerror=null; this.src='https://picsum.photos/1920/1080?random=1';">
+                <div class="hero__image-overlay"></div>
+            </div>
+            <div class="hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        <span class="hero__title-line">Welcome to Riverside</span>
+                        <span class="hero__title-line">Your Community, Your Home</span>
+                    </h1>
+                    <p class="hero__description">A vibrant city where culture, innovation, and natural beauty come together. Discover everything you need to live, work, and thrive in Riverside.</p>
+                    <div class="hero__buttons">
+                        <a href="#" class="hero__button hero__button--primary" aria-label="Resident Guide">Resident Guide</a>
+                        <a href="#" class="hero__button hero__button--primary" aria-label="For Visitors">For Visitors</a>
+                        <a href="#" class="hero__button hero__button--secondary" aria-label="Living in Riverside">Living Guide</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. News -->
+        <section class="news" aria-label="News and announcements">
+            <div class="news__container">
+                <h2 class="news__title">News</h2>
+                <div class="news__tabs" role="tablist" aria-label="News categories">
+                    <button class="news__tab news__tab--active" role="tab" aria-selected="true" aria-controls="news-all" id="tab-all" data-category="all">All</button>
+                    <button class="news__tab" role="tab" aria-selected="false" aria-controls="news-government" id="tab-government" data-category="government">Government</button>
+                    <button class="news__tab" role="tab" aria-selected="false" aria-controls="news-residents" id="tab-residents" data-category="residents">For Residents</button>
+                    <button class="news__tab" role="tab" aria-selected="false" aria-controls="news-visitors" id="tab-visitors" data-category="visitors">For Visitors</button>
+                </div>
+                <ul class="news__list" id="news-list" role="list">
+                    <li class="news__item" data-category="residents">
+                        <span class="news__item-date">2025/03/20</span>
+                        <a href="#" class="news__item-title">Free Multilingual Health Consultation Services Now Available</a>
+                    </li>
+                    <li class="news__item" data-category="visitors">
+                        <span class="news__item-date">2025/03/18</span>
+                        <a href="#" class="news__item-title">Spring Cultural Festival: Experience Diverse Cultures This Weekend</a>
+                    </li>
+                    <li class="news__item" data-category="residents">
+                        <span class="news__item-date">2025/03/15</span>
+                        <a href="#" class="news__item-title">New Digital Services Portal: Register for City Services Online</a>
+                    </li>
+                    <li class="news__item" data-category="all">
+                        <span class="news__item-date">2025/03/12</span>
+                        <a href="#" class="news__item-title">Emergency Preparedness Guide Now Available in 12 Languages</a>
+                    </li>
+                    <li class="news__item" data-category="residents">
+                        <span class="news__item-date">2025/03/10</span>
+                        <a href="#" class="news__item-title">International Job Fair for New Residents: March 25th at Community Center</a>
+                    </li>
+                    <li class="news__item" data-category="government">
+                        <span class="news__item-date">2025/03/08</span>
+                        <a href="#" class="news__item-title">City Council Meetings: Public Participation Welcome, Interpretation Services Available</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 4. About -->
+        <section class="about" aria-label="About the city">
+            <div class="about__container">
+                <h2 class="about__title">About Riverside</h2>
+                <div class="about__grid">
+                    <a href="#" class="about__block about__block--large about__card">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=800&fit=crop&q=80" 
+                             alt="Mayor Johnson welcoming visitors" 
+                             class="about__block-image">
+                        <div class="about__block-overlay"></div>
+                        <span class="about__block-text">Welcome Message from Mayor Johnson</span>
+                    </a>
+                    <a href="#" class="about__block about__card">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=300&fit=crop&q=80" 
+                             alt="City government building" 
+                             class="about__block-image">
+                        <div class="about__block-overlay"></div>
+                        <span class="about__block-text">City Government & Services</span>
+                    </a>
+                    <a href="#" class="about__block about__card">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop&q=80" 
+                             alt="Tourist attractions in Riverside" 
+                             class="about__block-image">
+                        <div class="about__block-overlay"></div>
+                        <span class="about__block-text">Tourism & Attractions</span>
+                    </a>
+                    <a href="#" class="about__block about__card">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&h=300&fit=crop&q=80" 
+                             alt="City council meeting" 
+                             class="about__block-image">
+                        <div class="about__block-overlay"></div>
+                        <span class="about__block-text">City Council & Meetings</span>
+                    </a>
+                    <a href="#" class="about__block about__card">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=300&fit=crop&q=80" 
+                             alt="Community sports and activities" 
+                             class="about__block-image">
+                        <div class="about__block-overlay"></div>
+                        <span class="about__block-text">Community Programs</span>
+                    </a>
+                </div>
+                <a href="#" class="about__link" aria-label="Learn more about the city">
+                    <span>Learn More</span>
+                    <svg class="about__link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- 5. Official Tourism Guide -->
+        <section class="tourism-guide" aria-label="Official tourism guide">
+            <div class="tourism-guide__container">
+                <h2 class="tourism-guide__title">
+                    <span class="tourism-guide__title-line">OFFICIAL RIVERSIDE CITY</span>
+                    <span class="tourism-guide__title-line">TOURISM GUIDE</span>
+                </h2>
+                <div class="tourism-guide__content">
+                    <div class="tourism-guide__image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=600&fit=crop&q=80" 
+                             alt="Scenic landmarks and cultural attractions in Riverside City" 
+                             class="tourism-guide__img" 
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='https://picsum.photos/1200/600?random=2';">
+                        <div class="tourism-guide__overlay"></div>
+                        <div class="tourism-guide__text">
+                            <p class="tourism-guide__quote">"Discover Riverside's Hidden Treasures"</p>
+                            <p class="tourism-guide__line">Explore historic landmarks and modern attractions,</p>
+                            <p class="tourism-guide__line">savor authentic local cuisine,</p>
+                            <p class="tourism-guide__line">and experience the vibrant culture that makes Riverside unique.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Related Information -->
+        <section class="related-info">
+            <div class="related-info__container">
+                <h2 class="related-info__title">Related Information</h2>
+                <div class="related-info__carousel">
+                    <div class="related-info__item">Community Donation Program</div>
+                    <div class="related-info__item">Local Business Directory</div>
+                    <div class="related-info__item">Environmental Initiatives</div>
+                    <div class="related-info__item">Volunteer Opportunities</div>
+                </div>
+                <div class="related-info__dots">
+                    <span class="related-info__dot related-info__dot--active"></span>
+                    <span class="related-info__dot"></span>
+                    <span class="related-info__dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Publications & Official SNS -->
+        <section class="sns">
+            <div class="sns__container">
+                <h2 class="sns__title">Publications & Official Social Media</h2>
+                <div class="sns__buttons">
+                    <a href="#" class="sns__button" aria-label="Follow us on Twitter">Twitter</a>
+                    <a href="#" class="sns__button" aria-label="Watch our videos on YouTube">YouTube</a>
+                    <a href="#" class="sns__button" aria-label="Like us on Facebook">Facebook</a>
+                    <a href="#" class="sns__button" aria-label="Follow us on Instagram">Instagram</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 8. Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <h2 class="footer__title">City of Riverside</h2>
+            <nav class="footer__nav">
+                <a href="#" class="footer__nav-link">About Riverside</a>
+                <a href="#" class="footer__nav-link">Resident Guide</a>
+                <a href="#" class="footer__nav-link">For Visitors</a>
+            </nav>
+            <div class="footer__contact">
+                <p class="footer__contact-item">
+                    <span class="footer__contact-label">Main Phone</span>
+                    <span class="footer__contact-value">+1 (555) 123-4567</span>
+                </p>
+                <p class="footer__contact-item">
+                    <span class="footer__contact-label">Fax</span>
+                    <span class="footer__contact-value">+1 (555) 123-4568</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
